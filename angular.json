@@ -2,5 +2,127 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "martinApp": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/martinApp",
+      "sourceRoot": "projects/martinApp/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/martinApp",
+            "index": "projects/martinApp/src/index.html",
+            "main": "projects/martinApp/src/main.ts",
+            "polyfills": "projects/martinApp/src/polyfills.ts",
+            "tsConfig": "projects/martinApp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/martinApp/src/favicon.ico",
+              "projects/martinApp/src/assets"
+            ],
+            "styles": [
+              "projects/martinApp/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/martinApp/src/environments/environment.ts",
+                  "with": "projects/martinApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "martinApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "martinApp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "martinApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/martinApp/src/test.ts",
+            "polyfills": "projects/martinApp/src/polyfills.ts",
+            "tsConfig": "projects/martinApp/tsconfig.spec.json",
+            "karmaConfig": "projects/martinApp/karma.conf.js",
+            "assets": [
+              "projects/martinApp/src/favicon.ico",
+              "projects/martinApp/src/assets"
+            ],
+            "styles": [
+              "projects/martinApp/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/martinApp/tsconfig.app.json",
+              "projects/martinApp/tsconfig.spec.json",
+              "projects/martinApp/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/martinApp/e2e/protractor.conf.js",
+            "devServerTarget": "martinApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "martinApp:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "martinApp"
 }
