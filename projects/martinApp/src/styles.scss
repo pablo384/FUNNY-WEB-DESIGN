@@ -1,1 +1,355 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("assets/font/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url("assets/font/Montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Light";
+  src: url("assets/font/Montserrat/Montserrat-Light.ttf") format("truetype");
+}
+$montserrat-regular: "Montserrat Regular";
+$montserrat-bold: "Montserrat Bold";
+$montserrat-light: "Montserrat Light";
+$main-color: #4621ad;
+$caption-color: #bcbccb;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $montserrat-regular;
+}
+:root {
+  font-family: $montserrat-regular;
+  // font-weight: bold;
+}
+
+.active {
+  color: $main-color;
+}
+.reduce-nav {
+  height: 4em;
+  text-align: center;
+  display: flex;
+  div {
+    width: calc(100% / 3);
+    padding: 1em;
+    line-height: 2em;
+  }
+  .p1 {
+    text-align: left;
+  }
+  .p2 {
+    text-align: center;
+    p {
+      display: none;
+    }
+  }
+  .p3 {
+    text-align: right;
+  }
+  .icon-nav {
+    color: $caption-color;
+  }
+}
+.menu-ul {
+  color: $caption-color;
+  text-align: center;
+  .input-c {
+    border-radius: 15px;
+    font-size: 18px;
+    padding: 0.3em 2em;
+    background-color: white;
+    color: $main-color;
+    border: 1px solid $main-color;
+    background: url("assets/icons/icon_search.svg") no-repeat scroll 4.5em 0.3em;
+    text-align: center;
+  }
+  li {
+    margin: 1em 0;
+  }
+}
+.display-none {
+  display: none;
+}
+.clearfix {
+  clear: both;
+}
+
+#contenido {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(70, 33, 173, 0.52),
+      rgba(70, 33, 173, 0.73)
+    ),
+    url("assets/img/zachary-nelson-192289-unsplash@2x.png");
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  div,
+  section {
+    padding: 2em;
+  }
+  .main-message {
+    padding-top: 5em;
+    h2 {
+      margin-bottom: 1em;
+      font-size: 32px;
+      font-family: $montserrat-bold;
+      padding: 0 calc(50vw) 0 0;
+      text-align: left;
+    }
+    p {
+      font-family: $montserrat-light;
+    }
+  }
+  .iconos-seccion {
+    text-align: center;
+    * {
+      padding: 0.3em;
+    }
+    h4 {
+      font-family: $montserrat-bold;
+    }
+  }
+  .seccion-contacto {
+    .fondo-blanco,
+    input {
+      background-color: white;
+      color: $main-color;
+      border: 1px solid $main-color;
+    }
+    .fondo-purpura,
+    #btnsubmit {
+      background-color: $main-color;
+      color: white;
+      border: 1px solid white;
+    }
+    form {
+      border-radius: 15px;
+    }
+    a {
+      text-decoration: none;
+    }
+    .btn,
+    input {
+      border-radius: 15px;
+      padding: 0.3em 2em;
+      margin: 0 0.2em;
+    }
+    .btn-contacto-session {
+      text-align: center;
+      padding: 1em;
+    }
+    .btn-contacto-genero-session {
+      text-align: center;
+      display: block;
+      padding: 0;
+    }
+
+    .man-icon {
+      background-image: url("assets/icons/man.svg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-origin: content-box, padding-box;
+    }
+    .woman-icon {
+      background-image: url("assets/icons/woman.svg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-origin: content-box, padding-box;
+    }
+    .cuadro {
+      display: inline-block;
+      margin: 2px;
+      min-height: 3em;
+      width: calc(40% - 4.4em - 4px);
+    }
+    .container-submit,
+    .inputs-formulario-seccion {
+      text-align: center;
+    }
+    input {
+      margin: 0.5em 0;
+      padding: 0.5em 1em;
+      width: calc(100% - 4em);
+      font-size: 16px;
+    }
+    .input-person {
+      background: url("assets/icons/person.svg") no-repeat scroll
+        calc(100% - 8px) 7px;
+      padding-right: 30px;
+    }
+    .input-chevron {
+      background: url("assets/icons/chevron-down.svg") no-repeat scroll
+        calc(100% - 8px) 15px;
+      padding-right: 30px;
+    }
+
+    #btnsubmit {
+      border-radius: 100px;
+      text-align: center;
+      margin: 0;
+      height: 60px;
+      font-size: 24px;
+      color: yellow;
+      border: none;
+      width: 60px;
+    }
+  }
+  footer {
+    text-align: center;
+    background-color: $main-color;
+    padding: 0.2em 0;
+  }
+}
+$breakpoint-tablet: 768px;
+@media (min-width: $breakpoint-tablet) {
+  nav {
+    float: left;
+    width: 100%;
+
+    div,
+    ul {
+      max-width: 1500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .active {
+    color: white;
+    text-decoration: underline;
+  }
+  .reduce-nav {
+    // height: 4em;
+    text-align: center;
+    display: block;
+    div {
+      width: unset;
+      display: inline-block;
+      margin: 0 auto;
+    }
+    .p1 {
+      text-align: left;
+      display: none;
+    }
+    .p2 {
+      text-align: center;
+      width: 10em;
+      background-color: white;
+      border-radius: 0 0 15px 15px;
+      padding-bottom: 0;
+      margin-top: 0;
+      padding-top: 1em;
+      p {
+        display: block;
+        font-size: 10px;
+        color: $main-color;
+        margin: 0;
+        padding: 0;
+        margin-top: -15px;
+        font-family: $montserrat-light;
+      }
+    }
+    .p3 {
+      text-align: right;
+      display: none;
+    }
+    .icon-nav {
+      color: $caption-color;
+    }
+  }
+  .display-none {
+    display: block;
+  }
+  .menu-ul {
+    color: $caption-color;
+    text-align: center;
+    margin-top: 5em;
+    .input-c {
+      display: none;
+    }
+    li {
+      float: left;
+      list-style: none;
+      margin: 0 1.5em;
+    }
+  }
+
+  #contenido {
+    min-height: 100vh;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(70, 33, 173, 0.52),
+        rgba(70, 33, 173, 0.73)
+      ),
+      url("assets/img/zachary-nelson-192289-unsplash@2x.png");
+    background-position: center;
+    background-size: cover;
+    color: white;
+    // text-align: center;
+
+    div,
+    section {
+      padding: 2em;
+      max-width: 1500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .main-message {
+      text-align: center;
+      h2 {
+        padding: 0;
+        margin: 0.5em;
+        text-align: center;
+      }
+      p {
+        text-align: center;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+    .iconos-seccion {
+      display: flex;
+      div {
+        width: calc(100% / 4);
+      }
+    }
+    .seccion-contacto {
+      .fondo-transparente-tablet {
+        background-color: transparent;
+        border: none;
+      }
+      .btn-contacto-session {
+        .fondo-blanco {
+          background-color: transparent;
+          color: white;
+          border: 1px solid white;
+        }
+        .fondo-purpura {
+          background-color: white;
+          color: #4621ad;
+          border: 1px solid #4621ad;
+        }
+        .btn {
+          padding: 0.3em 5em;
+          margin-left: 2em;
+        }
+      }
+      .ocultar-tablet,
+      .btn-contacto-genero-session,
+      .container-submit,
+      .inputs-formulario-seccion {
+        display: none;
+      }
+    }
+  }
+  .ocultar-tablet {
+    display: none;
+  }
+}
